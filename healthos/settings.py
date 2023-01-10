@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'App_subscription.apps.AppSubscriptionConfig',
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 AUTH_USER_MODEL = 'App_auth.CustomUser'
@@ -68,6 +70,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.static',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -137,6 +140,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
 CORS_ALLOW_ALL_ORIGINS = True
 
